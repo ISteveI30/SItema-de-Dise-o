@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/navbar :: head">
+<meta charset="UTF-8">
+<title>Update Alumno</title>
+</head>
+<body>
+
+	<header th:replace="layout/navbar :: header"></header>
+
+	<div class="container mx-auto">
+
+		<form class="well form-horizontal" th:action="@{/alumnos/modificar}"
+			th:object="${alumno}" method="post" id="contact_form">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Contact Us Today!</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Nombres</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								th:field="*{nombre}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Apellidos</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="last_name"
+								th:field="*{apellido}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label">Correo</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-envelope"></i></span> <input name="email"
+								th:field="*{correo}" class="form-control" type="email">
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Text input-->
+				<input th:field="*{idAlumno}" class="form-control"
+					type="hidden">
+				<div class="form-group">
+					<label class="col-md-4 control-label">Nacimiento</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-earphone"></i></span> <input name="phone"
+								th:field="*{nacimiento}" class="form-control" type="date">
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-warning">
+							Actualizar <span class="glyphicon glyphicon-send"></span>
+						</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+
+	<!-- /.container -->
+
+	<footer th:replace="layout/navbar :: resource"></footer>
+
+</body>
+</html>
+
+
+

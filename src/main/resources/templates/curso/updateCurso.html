@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/navbar :: head">
+<meta charset="UTF-8">
+<title>Update Alumno</title>
+</head>
+<body>
+
+	<header th:replace="layout/navbar :: header"></header>
+
+
+
+	<div class="container">
+
+		<form class="well form-horizontal" th:action="@{/cursos/guardar}"
+			th:object="${curso}" method="post" id="contact_form">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Contact Us Today!</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Curso</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+								th:field="*{nombre}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+				<input type="hidden" th:field="*{idCurso}">
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Ciclo</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="last_name"
+								th:field="*{ciclo}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label">Créditos</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-envelope"></i></span> <input name="email"
+								th:field="*{creditos}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Código de Curso</label>
+					<div class="col-md-4 selectContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-list"></i></span>
+							<select
+								name="selectCodigo" class="form-control" th:field="*{codigo}">
+								<option th:value="SI405" selected>SI405</option>
+								<option th:value="DG284">DG284</option>
+								<option th:value="AD984">AD984</option>
+								<option th:value="AF764">AF764</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Docente</label>
+					<div class="col-md-4 selectContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-list"></i></span> <select
+								name="selectDocente" class="form-control" th:field="*{docente}">
+								<option th:each="d:${lstDocente}" th:value="${d.idDocente}"
+									th:text="${d.nombre}+' '+${d.apellido}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-warning">
+							Actualziar <span class="glyphicon glyphicon-send"></span>
+						</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+
+	<!-- /.container -->
+
+	<footer th:replace="layout/navbar :: resource"></footer>
+
+</body>
+</html>
+
+
+

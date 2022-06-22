@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Registro</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<link href="/css/registro.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="container">
+		<br>
+		<div class="card bg-light">
+			<article class="card-body mx-auto" style="max-width: 400px;">
+				<h4 class="card-title mt-3 text-center">Registrate</h4>
+				<form th:action="@{/registros/registro}" th:object="${obj}"
+								method="post">
+					<div class="form-group input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> </span>
+						</div>
+						<input name="" class="form-control" th:field="*{name}" 
+							placeholder="Nombre del Instituto" type="text">
+					</div>
+					<!-- form-group// -->
+					<div class="form-group input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> </span>
+						</div>
+						<input name="" class="form-control" th:field="*{username}" 
+							placeholder="Correo electrónico" type="email">
+					</div>
+					<!-- form-group// -->
+					<div class="form-group input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> </span>
+						</div>
+						<select class="custom-select" style="max-width: 120px;">
+							<option selected>+51</option>
+							<option value="01">01</option>
+						</select> <input name="" class="form-control" th:field="*{phone}" 
+							placeholder="Número telefónico" type="text">
+					</div>
+
+					<!-- form-group end.// -->
+					<div class="form-group input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> </span>
+						</div>
+						<input class="form-control" placeholder="Contraseña"
+							type="password" th:field="*{password}" >
+					</div>
+					<!-- form-group// -->
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary btn-block"
+							value="Crear Cuenta"/>
+					</div>
+				</form>
+					<!-- form-group// -->
+					<p class="text-center">
+						¿Tienes una cuenta? <a th:href="@{/login}">Iniciar Sesión</a>
+					</p>
+			</article>
+		</div>
+		<!-- card.// -->
+
+	</div>
+
+
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

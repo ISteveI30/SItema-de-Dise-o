@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/navbar :: head">
+<meta charset="UTF-8">
+<title>Update Alumno</title>
+</head>
+<body>
+
+	<header th:replace="layout/navbar :: header"></header>
+
+
+
+	<div class="container">
+
+		<form class="well form-horizontal" th:action="@{/docentes/guardar}"
+			th:object="${docente}" method="post">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Contact Us Today!</legend>
+
+				<input th:field="*{idDocente}" type="hidden">
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Nombres</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<input name="first_name" th:field="*{nombre}"
+								class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Apellidos</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<input name="last_name" th:field="*{apellido}"
+								class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label">DNI</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<input name="email" th:field="*{dni}" class="form-control"
+								type="text">
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-warning">
+							Actualizar </span>
+						</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+
+	<footer th:replace="layout/navbar :: resource"></footer>
+
+</body>
+</html>
+
+
+
